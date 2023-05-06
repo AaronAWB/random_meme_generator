@@ -5,16 +5,27 @@ import memesData from '../memesData'
 
 function Meme () {
 
-  const [memeImage, setMemeImage] = useState('');
+  const [allMemeImgs, setAllMemeImgs] = useState(memesData)
+  const [meme, setMeme] = useState({
+    topText: '',
+    bottomText: '',
+    randomImage:''
+  })
 
   function handleClick () {
-    const memes = memesData.data.memes;
+    const memes = allMemeImgs.data.memes;
     const randomNumber = Math.floor(Math.random() * memes.length)
     const url = memes[randomNumber].url;
-    setMemeImage(url);
+    setMeme(prevImage => {
+      return {
+        ...prevImage,
+        randomImage: url
+      }
+    });
   }
 
   return (
+    <>
       <div className='form'>
         <input 
           type='text'
@@ -32,10 +43,13 @@ function Meme () {
         >
           Generate
         </button>
+      </div>
+      <div className='img-container'>
         <p>
-          {memeImage && <img src={memeImage} className='image' alt='meme' />}
+          {meme.randomImage && <img src={meme.randomImage} className='image' alt='meme' />}
         </p>
       </div>
+    </>
   );
 }
 
