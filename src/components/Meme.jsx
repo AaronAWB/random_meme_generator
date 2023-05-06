@@ -1,9 +1,21 @@
+import { useState } from 'react';
 import '@Styles/Meme.css'
+import memesData from '../memesData'
+
 
 function Meme () {
+
+  const [memeImage, setMemeImage] = useState('');
+
+  function handleClick () {
+    const memes = memesData.data.memes;
+    const randomNumber = Math.floor(Math.random() * memes.length)
+    const url = memes[randomNumber].url;
+    setMemeImage(url);
+  }
+
   return (
-    <div className='meme'>
-      <form className='form'>
+      <div className='form'>
         <input 
           type='text'
           className='form-input'
@@ -16,11 +28,14 @@ function Meme () {
         ></input>
         <button
           className='form-button'
+          onClick={handleClick}
         >
           Generate
         </button>
-      </form>
-    </div>
+        <p>
+          {memeImage && <img src={memeImage} className='image' alt='meme' />}
+        </p>
+      </div>
   );
 }
 

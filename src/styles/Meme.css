@@ -1,11 +1,8 @@
-.meme {
-    padding: 36px;
-}
-
 .form {
     display: grid;
     grid-template: 40px 40px / 1fr 1fr;
     gap: 17px;
+    padding: 36px;
 }
 
 .form-input {
@@ -23,4 +20,8 @@
     color: white;
     border: none;
     cursor: pointer;
+}
+
+.image {
+    max-width: 100%;
 }
