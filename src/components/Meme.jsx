@@ -1,14 +1,14 @@
+import '@Styles/Meme.css'
+
 function Meme () {
   return (
     <div className='meme'>
-      <form>
-        <label></label>
+      <form className='form'>
         <input 
           type='text'
           className='form-input'
           placeholder='top text'
         ></input>
-        <label></label>
         <input 
           type='text'
           className='form-input'
