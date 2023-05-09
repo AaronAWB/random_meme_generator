@@ -35,8 +35,6 @@ function Meme () {
     })
   }
 
-  console.log(meme)
-
   return (
     <>
       <div className='form'>
@@ -46,6 +44,7 @@ function Meme () {
           placeholder='top text'
           name='topText'
           onChange={handleChange}
+          value={formData.topText}
         ></input>
         <input 
           type='text'
@@ -53,6 +52,7 @@ function Meme () {
           placeholder='bottom text'
           name='bottomText'
           onChange={handleChange}
+          value={formData.bottomText}
         ></input>
         <button
           className='form-button'
@@ -64,6 +64,8 @@ function Meme () {
       <div className='img-container'>
         <p>
           {meme.randomImage && <img src={meme.randomImage} className='image' alt='meme' />}
+          <h2 className="meme-img-text top">One does not simply</h2>
+          <h2 className="meme-img-text bottom">Walk into Mordor</h2>
         </p>
       </div>
     </>
